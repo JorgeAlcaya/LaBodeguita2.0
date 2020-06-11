@@ -1,0 +1,14 @@
+{% extends 'app/base.html' %}
+
+{% block content %}
+
+
+<body>
+    <h1 class="f">Editar Producto</h1>
+   <form class="g" method="POST">
+        {{ form }}
+        {% csrf_token %}
+        <button  type="submit" >Editar</button><button><a href="http://localhost:8000/listarProductosFull">Volver</a></button>
+   </form>
+</body>
+{% endblock content %}

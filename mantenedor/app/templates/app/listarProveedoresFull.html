@@ -1,0 +1,69 @@
+{% extends 'app/base.html' %}
+
+{% block content %}
+
+{% load staticfiles %}
+
+
+<h3 class="user">Bienvenido </h3>
+<h3 class="user">{{user.username}}</h3>
+<h1 class="f">Editar Proveedores </h1>
+
+<body>
+
+    {% csrf_token %}
+    <input  action="/listarProveedores" type="submit" value="Mostrar Todos">
+</form>
+    
+    {% for c in proveedor %}
+    <form role="form" enctype="multipart/form-data" action="" method="POST" id="upload-image-form">
+        <div class="btit" id="tcen">
+
+
+
+
+            <div> RUN </div>
+            <div class="czise">{{c.rut}}</div>
+            <div> NOMBRE </div>
+            <div class="czise">{{c.nombre}}</div>
+            <div> APELLIDO PATERNO </div>
+            <div class="czise"> {{c.apellido_paterno}}</div>
+            <div> APELLIDO MATERNO </div>
+            <div class="czise">{{c.apellido_materno}}</div>
+            <div> TELÉFONO </div>
+            <div class="czise"> {{c.telefono}}</div>
+            <div> DOMICILIO </div>
+            <div class="czise"> {{c.domicilio}}</div>
+            <div> REGIÓN </div>
+            <div class="czise"> {{c.region}}</div>
+            <div> COMUNA </div>
+            <div class="czise"> {{c.comuna}}</div>
+            <div> FECHA NACIMIENTO </div>
+            <div class="czise"> {{c.fecha_nacimiento}}</div>
+            <div> PRODUCTO </div>
+            <div class="czise">{{c.producto}}</div>
+            <a href="/editarProveedor/{{c.id}}"> EDITAR</a>
+            <a class="rb" href="/borrarProveedor/{{c.id}}" onclick="return confirm('¿Seguro de borrar?');">
+                BORRAR</a>
+        </div>
+
+
+
+        </div>
+
+    </form>
+
+
+
+    {% endfor%}
+
+
+
+</body>
+
+
+
+
+{% endblock content %}
+
+
